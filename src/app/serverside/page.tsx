@@ -1,6 +1,14 @@
+import { sessionStatus } from "@/utils/session"
+import { redirect } from "next/navigation"
 
-export const page = () => {
+export const ServerSide = () => {
+  const session = sessionStatus;
+  if (!session) {
+    redirect('/')
+  }
   return (
-    <div>page</div>
+    <div>This is a server component</div>
   )
 }
+
+export default ServerSide
